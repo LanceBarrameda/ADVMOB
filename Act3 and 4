@@ -1,0 +1,47 @@
+import React, {useState} from 'react';
+import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+const TextInANest = () => {
+  const [titleText, setTitleText] = useState("Lance Marion M. Barrameda");
+  const bodyText = ' on BSIT from my experience on making our project in System Architecture 1 and 2 the system that we make is Library Sytem at first i am the documentor i make the first part of the of the document then the rest is my other member and in the 2nd Sysarch im assign in making the design of our system. ';
+
+  const onPressTitle = () => {
+    setTitleText("Lance Designer and Documentor");
+  };
+
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.baseText}>
+          <Text style={styles.titleText} onPress={onPressTitle}>
+            {titleText}
+            {'\n'}
+            {'\n'}
+          </Text>
+          <Text style={styles.innerText}> HI! I am Lance{bodyText}</Text>
+          <Text numberOfLines={5}>{bodyText}</Text>
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'red',
+  },
+  innerText: {
+    color: 'red',
+  },
+});
+
+export default TextInANest;
