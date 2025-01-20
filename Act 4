@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+import { Text, StyleSheet } from 'react-native';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+
+const TextInANest = () => {
+  const [titleText, setTitleText] = useState("Lance Marion M. Barrameda");
+  const bodyText =
+    "I am a BSIT student. From my experience in making our project for System Architecture 1 and 2, we developed a Library System. At first, I was the documenter, creating the initial part of the document, while the rest was completed by my other team members. In the second System Architecture course, I was assigned to design our system.";
+
+  const onPressTitle = () => {
+    setTitleText("Lance - Designer and Documentor");
+  };
+
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.baseText}>
+          <Text style={styles.titleText} onPress={onPressTitle}>
+            {titleText}
+            {"\n\n"}
+          </Text>
+          <Text style={styles.innerText}>Hi! I am Lance. {"\n\n"}</Text>
+          <Text numberOfLines={10}>{bodyText}</Text>
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  baseText: {
+    fontFamily: "Cochin",
+    fontSize: 16,
+  },
+  titleText: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "red",
+  },
+  innerText: {
+    color: "red",
+    fontSize: 18,
+  },
+});
+
+export default TextInANest;
